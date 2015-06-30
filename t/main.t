@@ -38,4 +38,10 @@ ok $object->isa('Data::Object::Number');
 ok !eval { $$object++ };
 like $@, $error;
 
+# foreign
+ok $object = Data::Object::Immutable->new(bless {}, 'main');
+ok $object->isa('main');
+ok !eval { $object->{0} = 1 };
+like $@, $error;
+
 ok 1 and done_testing;

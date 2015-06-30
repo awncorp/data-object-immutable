@@ -11,12 +11,11 @@ use Readonly;
 # VERSION
 
 sub new {
-    my $self = Data::Object->new(pop);
-    my $type = $self->objtype;
+    my $self = Data::Object->new($_[1]);
 
-    if    ($type eq 'HASH')  { Readonly::Hash   %$self => %$self; }
-    elsif ($type eq 'ARRAY') { Readonly::Array  @$self => @$self; }
-    else                     { Readonly::Scalar $$self => $$self; }
+    Readonly::Hash   %$self => %$self if UNIVERSAL::isa($self, 'HASH');
+    Readonly::Array  @$self => @$self if UNIVERSAL::isa($self, 'ARRAY');
+    Readonly::Scalar $$self => $$self if UNIVERSAL::isa($self, 'SCALAR');
 
     return $self;
 }
@@ -42,8 +41,7 @@ Data::Object::Immutable provides a mechanism for making any L<Data::Object>
 data type object immutable. An immutable object is an object whose state cannot
 be modified after it is created; Immutable objects are often useful because
 they are inherently thread-safe, easier to reason about, and offer higher
-security than mutable objects. B<Note: This is an early release available for
-testing and feedback and as such is subject to change.>
+security than mutable objects.
 
 =cut
 

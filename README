@@ -16,6 +16,4 @@ DESCRIPTION
     object whose state cannot be modified after it is created; Immutable
     objects are often useful because they are inherently thread-safe,
     easier to reason about, and offer higher security than mutable objects.
-    Note: This is an early release available for testing and feedback and
-    as such is subject to change.
 
