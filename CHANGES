@@ -1,6 +1,11 @@
 Changelog for Data-Object-Immutable
 
-0.05 2015-09-27T11:59:46
+0.06 2015-09-27T14:29:36
+ - Fixed failing mutable-string test.
+ - Updated the .travis.yml file.
+
+0.05 2015-09-27T11:59:51
+ - v0.05
  - Updated build.
  - Updated distro to support Data::Object 0.53+.
 
