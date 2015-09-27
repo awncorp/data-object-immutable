@@ -1,6 +1,7 @@
 Changelog for Data-Object-Immutable
 
-0.05 2015-09-27T11:19:52
+0.05 2015-09-27T11:59:46
+ - Updated build.
  - Updated distro to support Data::Object 0.53+.
 
 0.04 2015-06-30T01:55:56
