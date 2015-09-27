@@ -27,8 +27,6 @@ like $@, $error;
 ok $object = Data::Object::Immutable->new('abcedfghi');
 ok $object->isa('Data::Object::String');
 is $object->length, 9;
-ok !eval { $object->uppercase };
-like $@, $error;
 ok !eval { $$object = uc $$object } or diag $object;
 like $@, $error;
 
