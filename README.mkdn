@@ -1,12 +1,12 @@
 # NAME
 
-Data::Object::Immutable - Immutable Data Type Objects for Perl 5
+Data::Object::Immutable - Immutable Object for Perl 5
 
 [![Build Status](https://travis-ci.org/alnewkirk/Data-Object-Immutable.png?branch=master)](https://travis-ci.org/alnewkirk/Data-Object-Immutable)
 
 # VERSION
 
-version 0.06
+version 0.07
 
 # SYNOPSIS
 

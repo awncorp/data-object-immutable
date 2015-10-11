@@ -1,4 +1,4 @@
-requires "Data::Object" => "0.53";
+requires "Data::Object" => "0.57";
 requires "Readonly" => "2.00";
 requires "perl" => "v5.14.0";
 

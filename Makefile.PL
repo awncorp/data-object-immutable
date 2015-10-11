@@ -18,10 +18,10 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.014000",
   "NAME" => "Data::Object::Immutable",
   "PREREQ_PM" => {
-    "Data::Object" => "0.53",
+    "Data::Object" => "0.57",
     "Readonly" => "2.00"
   },
-  "VERSION" => "0.06",
+  "VERSION" => "0.07",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Data::Object" => "0.53",
+  "Data::Object" => "0.57",
   "ExtUtils::MakeMaker" => 0,
   "Readonly" => "2.00"
 );
