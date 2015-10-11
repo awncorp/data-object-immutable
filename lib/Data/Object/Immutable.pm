@@ -1,23 +1,26 @@
-# ABSTRACT: Immutable Data Type Objects for Perl 5
+# ABSTRACT: Immutable Object for Perl 5
 package Data::Object::Immutable;
 
-use 5.10.0;
+use 5.14.0;
 use strict;
 use warnings;
 
 use Data::Object;
+use Data::Object::Signatures;
 use Readonly;
 
 # VERSION
 
-sub new {
-    my $self = Data::Object->new($_[1]);
+method new ($data) {
+
+    $self = Data::Object->new($data);
 
     Readonly::Hash   %$self => %$self if UNIVERSAL::isa($self, 'HASH');
     Readonly::Array  @$self => @$self if UNIVERSAL::isa($self, 'ARRAY');
     Readonly::Scalar $$self => $$self if UNIVERSAL::isa($self, 'SCALAR');
 
     return $self;
+
 }
 
 1;
@@ -44,4 +47,3 @@ they are inherently thread-safe, easier to reason about, and offer higher
 security than mutable objects.
 
 =cut
-

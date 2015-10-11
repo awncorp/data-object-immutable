@@ -42,4 +42,28 @@ ok $object->isa('main');
 ok !eval { $object->{0} = 1 };
 like $@, $error;
 
+{
+    package ImmutableClass;
+
+    use Data::Object::Class;
+
+    with 'Data::Object::Role::Immutable';
+
+    has data => ( is => 'rw' );
+
+    sub BUILD {
+
+        return shift;
+
+    }
+
+    1;
+}
+
+# class
+ok $object = ImmutableClass->new(data => {1..4});
+ok $object->isa('ImmutableClass');
+ok !eval { $object->data({4..8}) };
+like $@, $error;
+
 ok 1 and done_testing;
