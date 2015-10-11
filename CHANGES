@@ -1,6 +1,7 @@
 Changelog for Data-Object-Immutable
 
-0.07 2015-10-11T06:12:19
+0.07 2015-10-11T06:14:00
+ - Updated build.
  - Added role for mixing-in immutability.
 
 0.06 2015-09-27T14:31:34
