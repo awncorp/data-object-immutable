@@ -2,45 +2,47 @@ use Test::More;
 
 use_ok 'Data::Object::Immutable';
 
-my $error  = qr/modification of a read-only value/i;
-$object = '';
+my $error1 = qr/modification of a read-only value/i;
+my $error2 = qr/failed to write new value to hash/i;
+
+my $object = '';
 
 # array
 ok $object = Data::Object::Immutable->new([1..9]);
 ok $object->isa('Data::Object::Array');
 is $object->count, 9;
 ok !eval { $object->set(0,1) };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 ok !eval { $object->[0]++ };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 # hash
 ok $object = Data::Object::Immutable->new({1..8});
 ok $object->isa('Data::Object::Hash');
 is $object->keys->count, 4;
 ok !eval { $object->set(1,2) };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 ok !eval { $object->{1}++ };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 # string
 ok $object = Data::Object::Immutable->new('abcedfghi');
 ok $object->isa('Data::Object::String');
 is $object->length, 9;
 ok !eval { $$object = uc $$object } or diag $object;
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 # number
 ok $object = Data::Object::Immutable->new(1000);
 ok $object->isa('Data::Object::Number');
 ok !eval { $$object++ };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 # foreign
 ok $object = Data::Object::Immutable->new(bless {}, 'main');
 ok $object->isa('main');
 ok !eval { $object->{0} = 1 };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 {
     package ImmutableClass;
@@ -64,6 +66,6 @@ like $@, $error;
 ok $object = ImmutableClass->new(data => {1..4});
 ok $object->isa('ImmutableClass');
 ok !eval { $object->data({4..8}) };
-like $@, $error;
+ok $@ =~ qr/$error1|$error2/;
 
 ok 1 and done_testing;

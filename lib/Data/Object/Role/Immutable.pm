@@ -15,7 +15,9 @@ use Readonly;
 
 around BUILD => fun ($orig, $self, @args) {
 
-    return Data::Object::Immutable->new($self->$orig(@args));
+    my $result = $self->$orig(@args);
+
+    return Data::Object::Immutable->new($result);
 
 };
 
