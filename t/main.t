@@ -8,19 +8,19 @@ my $error2 = qr/failed to write new value to hash/i;
 my $object = '';
 
 # array
-ok $object = Data::Object::Immutable->new([1..9]);
+ok $object = Data::Object::Immutable->new([1 .. 9]);
 ok $object->isa('Data::Object::Array');
 is $object->count, 9;
-ok !eval { $object->set(0,1) };
+ok !eval { $object->set(0, 1) };
 ok $@ =~ qr/$error1|$error2/;
 ok !eval { $object->[0]++ };
 ok $@ =~ qr/$error1|$error2/;
 
 # hash
-ok $object = Data::Object::Immutable->new({1..8});
+ok $object = Data::Object::Immutable->new({1 .. 8});
 ok $object->isa('Data::Object::Hash');
 is $object->keys->count, 4;
-ok !eval { $object->set(1,2) };
+ok !eval { $object->set(1, 2) };
 ok $@ =~ qr/$error1|$error2/;
 ok !eval { $object->{1}++ };
 ok $@ =~ qr/$error1|$error2/;
@@ -45,27 +45,28 @@ ok !eval { $object->{0} = 1 };
 ok $@ =~ qr/$error1|$error2/;
 
 {
-    package ImmutableClass;
 
-    use Data::Object::Class;
+  package ImmutableClass;
 
-    with 'Data::Object::Role::Immutable';
+  use Data::Object::Class;
 
-    has data => ( is => 'rw' );
+  with 'Data::Object::Role::Immutable';
 
-    sub BUILD {
+  has data => (is => 'rw');
 
-        return shift;
+  sub BUILD {
 
-    }
+    return shift;
 
-    1;
+  }
+
+  1;
 }
 
 # class
-ok $object = ImmutableClass->new(data => {1..4});
+ok $object = ImmutableClass->new(data => {1 .. 4});
 ok $object->isa('ImmutableClass');
-ok !eval { $object->data({4..8}) };
+ok !eval { $object->data({4 .. 8}) };
 ok $@ =~ qr/$error1|$error2/;
 
 ok 1 and done_testing;

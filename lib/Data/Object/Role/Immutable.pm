@@ -13,11 +13,11 @@ use Readonly;
 
 # VERSION
 
-around BUILD => fun ($orig, $self, @args) {
+around BUILD => fun($orig, $self, @args) {
 
-    my $result = $self->$orig(@args);
+  my $result = $self->$orig(@args);
 
-    return Data::Object::Immutable->new($result);
+  return Data::Object::Immutable->new($result);
 
 };
 

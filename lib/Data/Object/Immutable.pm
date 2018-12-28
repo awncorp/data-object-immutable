@@ -13,13 +13,13 @@ use Readonly;
 
 method new ($data) {
 
-    $self = Data::Object->new($data);
+  $self = Data::Object->new($data);
 
-    Readonly::Hash   %$self => %$self if UNIVERSAL::isa $self, 'HASH';
-    Readonly::Array  @$self => @$self if UNIVERSAL::isa $self, 'ARRAY';
-    Readonly::Scalar $$self => $$self if UNIVERSAL::isa $self, 'SCALAR';
+  Readonly::Hash %$self   => %$self if UNIVERSAL::isa $self, 'HASH';
+  Readonly::Array @$self  => @$self if UNIVERSAL::isa $self, 'ARRAY';
+  Readonly::Scalar $$self => $$self if UNIVERSAL::isa $self, 'SCALAR';
 
-    return $self;
+  return $self;
 
 }
 
