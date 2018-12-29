@@ -2,11 +2,11 @@
 
 Data::Object::Immutable - Immutable Object for Perl 5
 
-[![Build Status](https://travis-ci.org/alnewkirk/Data-Object-Immutable.png?branch=master)](https://travis-ci.org/alnewkirk/Data-Object-Immutable)
+[![Build Status](https://travis-ci.org/iamalnewkirk/data-object-immutable.svg?branch=master)](https://travis-ci.org/iamalnewkirk/data-object-immutable)
 
 # VERSION
 
-version 0.08
+version 0.09
 
 # SYNOPSIS
 
@@ -29,11 +29,7 @@ security than mutable objects.
 
 # AUTHOR
 
-Al Newkirk &lt;anewkirk@ana.io>
-
-# CONTRIBUTOR
-
-Developer &lt;dev@example.com>
+Al Newkirk <al@iamalnewkirk.com>
 
 # COPYRIGHT AND LICENSE
 

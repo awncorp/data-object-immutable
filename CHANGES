@@ -1,6 +1,10 @@
 Changelog for Data-Object-Immutable
 
-0.08 2015-11-29T07:36:25
+0.09 2018-12-29T00:22:35
+ - Tidy source and update build scripts
+
+0.08 2015-11-29T07:36:40
+ - v0.08
  - Updated build.
  - Fixed error-checking across platforms.
 
